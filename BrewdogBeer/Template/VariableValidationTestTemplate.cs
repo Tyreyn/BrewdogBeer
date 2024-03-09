@@ -4,14 +4,18 @@
     using BrewdogBeer.Helpers;
     using Xunit.Abstractions;
 
+    /// <summary>
+    /// The variable validation test template.
+    /// </summary>
+    /// <param name="output">
+    /// The test log output class.
+    /// </param>
     public class VariableValidationTestTemplate(ITestOutputHelper output) : BrewdogBeerTestTemplate(output)
     {
-
         /// <summary>
         /// Gets or sets the string name of tested variable.
         /// </summary>
         protected string VariableToTest { get; set; }
-
 
         /// <summary>
         /// Gets or sets the compared value for tested variable.
@@ -26,13 +30,14 @@
             List<string> failingBeersName = new List<string>();
             foreach (Beer beer in this.BeerList)
             {
-                var variable = beer.GetType().GetProperty(VariableToTest).GetValue(beer, null);
-                this.Output.WriteLine("[{0}]: Beer {1} value {2}. Expected: {3}, Actual: {4}",
-                                      beer.name,
-                                      this.VariableToTest,
-                                      variable,
-                                      "double",
-                                      variable.GetType());
+                var variable = beer.GetType().GetProperty(this.VariableToTest).GetValue(beer, null);
+                this.Output.WriteLine(
+                    "[{0}]: Beer {1} value {2}. Expected: {3}, Actual: {4}",
+                    beer.name,
+                    this.VariableToTest,
+                    variable,
+                    "double",
+                    variable.GetType());
 
                 if (!ValueOperations.IsDouble(variable))
                 {
@@ -55,11 +60,11 @@
 
             foreach (Beer beer in this.BeerList)
             {
-                var variable = beer.GetType().GetProperty(VariableToTest).GetValue(beer, null);
+                var variable = beer.GetType().GetProperty(this.VariableToTest).GetValue(beer, null);
                 this.Output.WriteLine(
                     "[{0}]: Beer {1} value {2}",
                     beer.name,
-                    VariableToTest,
+                    this.VariableToTest,
                     variable);
 
                 if (ValueOperations.IsNull(variable))
@@ -86,7 +91,7 @@
                 var variable = beer.GetType().GetProperty(this.VariableToTest).GetValue(beer, null);
                 this.Output.WriteLine(
                     "[{0}]: Beer {1} value {2}",
-                     beer.name,
+                    beer.name,
                     this.VariableToTest,
                     variable);
 
@@ -111,7 +116,7 @@
 
             foreach (Beer beer in this.BeerList)
             {
-                var variable = beer.GetType().GetProperty(VariableToTest).GetValue(beer, null);
+                var variable = beer.GetType().GetProperty(this.VariableToTest).GetValue(beer, null);
                 this.Output.WriteLine(
                     "[{0}]: ABV value {1}",
                     beer.name,

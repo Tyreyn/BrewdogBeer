@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BrewdogBeer.Entities.Elementary;
-
-namespace BrewdogBeer.Entities
+﻿namespace BrewdogBeer.Entities
 {
+    using System.Collections.Generic;
+    using BrewdogBeer.Entities.Elementary;
+
     /// <summary>
     /// The root beer entities.
     /// </summary>

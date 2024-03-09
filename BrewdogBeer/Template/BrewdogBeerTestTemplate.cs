@@ -18,23 +18,12 @@
         /// <summary>
         /// Gets or sets the response beer list.
         /// </summary>
-        public List<Beer> BeerList
-        {
-            get => this.beerList;
-
-            set => this.beerList = value;
-        }
+        public List<Beer> BeerList { get; set; } = new List<Beer>();
 
         /// <summary>
         /// Gets or sets API URL.
         /// </summary>
         public string Url { get; set; } = "https://api.punkapi.com/v2/beers?brewed_after=12-2015";
-
-
-        /// <summary>
-        /// The received beer list.
-        /// </summary>
-        private List<Beer> beerList = new List<Beer>();
 
         /// <summary>
         /// The test log output class.
@@ -61,7 +50,6 @@
             "food",
             "ids",
         };
-
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BrewdogBeerTestTemplate"/> class.
